@@ -1,0 +1,55 @@
+#include <stdio.h>
+
+int main() {
+    int a[100], b[100], c[200]; // c là mảng kết quả
+    int n, m;
+
+    // 1. Nhập mảng A (Người dùng phải tự nhập tăng dần)
+    printf("Nhap so phan tu mang A: ");
+    scanf("%d", &n);
+    printf("Nhap mang A (tang dan): ");
+    for (int i = 0; i < n; i++) scanf("%d", &a[i]);
+
+    // 2. Nhập mảng B (Người dùng phải tự nhập tăng dần)
+    printf("Nhap so phan tu mang B: ");
+    scanf("%d", &m);
+    printf("Nhap mang B (tang dan): ");
+    for (int i = 0; i < m; i++) scanf("%d", &b[i]);
+
+    // 3. Thuật toán trộn
+    int i = 0, j = 0, k = 0;
+    
+    // Khi cả 2 mảng đều còn phần tử để xét
+    while (i < n && j < m) {
+        if (a[i] < b[j]) {
+            c[k] = a[i]; // Lấy phần tử nhỏ hơn của A bỏ vào C
+            i++;         // Tăng chỉ số A lên
+        } else {
+            c[k] = b[j]; // Lấy phần tử nhỏ hơn của B bỏ vào C
+            j++;         // Tăng chỉ số B lên
+        }
+        k++; // Tăng chỉ số mảng C
+    }
+
+    // Nếu mảng A còn dư phần tử, chép nốt vào C
+    while (i < n) {
+        c[k] = a[i];
+        i++;
+        k++;
+    }
+
+    // Nếu mảng B còn dư phần tử, chép nốt vào C
+    while (j < m) {
+        c[k] = b[j];
+        j++;
+        k++;
+    }
+
+    // 4. In kết quả
+    printf("Mang sau khi tron: ");
+    for (int x = 0; x < k; x++) {
+        printf("%d ", c[x]);
+    }
+
+    return 0;
+}

@@ -1,0 +1,38 @@
+#include <stdio.h>
+
+// Hàm tính tổng các phần tử trong ma trận
+int tinhTong(int a[100][100], int m, int n) {
+    int sum = 0;
+    for (int i = 0; i < m; i++) {
+        for (int j = 0; j < n; j++) {
+            sum = sum + a[i][j]; // Cộng dồn từng phần tử
+        }
+    }
+    return sum;
+}
+
+int main() {
+    int a[100][100];
+    int m, n;
+
+    // 1. Nhập số dòng và số cột
+    printf("Nhap so dong m: ");
+    scanf("%d", &m);
+    printf("Nhap so cot n: ");
+    scanf("%d", &n);
+
+    // 2. Nhập ma trận
+    printf("Nhap cac phan tu cua ma tran:\n");
+    for (int i = 0; i < m; i++) {
+        for (int j = 0; j < n; j++) {
+            printf("a[%d][%d] = ", i, j);
+            scanf("%d", &a[i][j]);
+        }
+    }
+
+    // 3. Gọi hàm và in kết quả
+    int ketQua = tinhTong(a, m, n);
+    printf("Tong cac phan tu cua ma tran la: %d\n", ketQua);
+
+    return 0;
+}

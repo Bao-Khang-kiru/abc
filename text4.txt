@@ -1,0 +1,53 @@
+#include <stdio.h>
+
+int main() {
+    int a[100][100];
+    int m, n, x;
+    int dem = 0; // Biến đếm số lần xuất hiện
+
+    // 1. Nhập ma trận
+    printf("Nhap so dong m: ");
+    scanf("%d", &m);
+    printf("Nhap so cot n: ");
+    scanf("%d", &n);
+
+    for (int i = 0; i < m; i++) {
+        for (int j = 0; j < n; j++) {
+            printf("Nhap a[%d][%d]: ", i, j);
+            scanf("%d", &a[i][j]);
+        }
+    }
+
+    // 2. In ma trận ra màn hình
+    printf("\nMa tran vua nhap la:\n");
+    for (int i = 0; i < m; i++) {
+        for (int j = 0; j < n; j++) {
+            printf("%d\t", a[i][j]); // \t để tab cho thẳng hàng
+        }
+        printf("\n"); // Xuống dòng sau khi in hết 1 hàng
+    }
+
+    // 3. Nhập số cần tìm
+    printf("\nNhap so nguyen can tim x: ");
+    scanf("%d", &x);
+
+    // 4. Tìm kiếm và in vị trí
+    printf("So %d xuat hien tai cac vi tri (dong, cot): ", x);
+    for (int i = 0; i < m; i++) {
+        for (int j = 0; j < n; j++) {
+            if (a[i][j] == x) {
+                printf("(%d, %d) ", i, j);
+                dem++;
+            }
+        }
+    }
+
+    // 5. In tổng số lượng tìm thấy
+    if (dem == 0) {
+        printf("\nKhong tim thay so %d trong ma tran.", x);
+    } else {
+        printf("\nTong so lan xuat hien: %d\n", dem);
+    }
+
+    return 0;
+}

@@ -1,0 +1,39 @@
+#include <stdio.h>
+
+int main() {
+    int a[100][100];
+    int b[100][100]; // Ma trận kết quả (chuyển vị)
+    int m, n;
+
+    // 1. Nhập ma trận
+    printf("Nhap so dong m: ");
+    scanf("%d", &m);
+    printf("Nhap so cot n: ");
+    scanf("%d", &n);
+
+    printf("Nhap ma tran goc:\n");
+    for (int i = 0; i < m; i++) {
+        for (int j = 0; j < n; j++) {
+            scanf("%d", &a[i][j]);
+        }
+    }
+
+    // 2. Thực hiện chuyển vị: Gán a[i][j] sang b[j][i]
+    // Ma trận b sẽ có số dòng là n và số cột là m
+    for (int i = 0; i < m; i++) {
+        for (int j = 0; j < n; j++) {
+            b[j][i] = a[i][j];
+        }
+    }
+
+    // 3. In ma trận chuyển vị
+    printf("\nMa tran chuyen vi (doi dong thanh cot):\n");
+    for (int i = 0; i < n; i++) {      // Chạy theo số dòng mới (là n)
+        for (int j = 0; j < m; j++) {  // Chạy theo số cột mới (là m)
+            printf("%d\t", b[i][j]);
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
